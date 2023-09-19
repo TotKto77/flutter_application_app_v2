@@ -1,0 +1,15 @@
+{
+    "language": "Language",
+    "login": "Login",
+    "password": "Password",
+    "singIn": "Sign In",
+    "logScreenQest": "Do you have an accaunt ?",
+    "create":"Create",
+    "loginLengh":"The login must contain at least 3 symbols",
+    "passwordLengh":"The password must hold at least 8 symbols",
+    "error":"Error",
+    "alertMesage":"Invalid login or password entered",
+    "russian": "Russian",
+    "english": "English",
+    "settings": "Settings"
+}
