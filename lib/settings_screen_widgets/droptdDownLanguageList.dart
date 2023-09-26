@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_app_v2/repo/repo_settings.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import '../settings_screen.dart';
+import "../localizations/custom_localization.dart";
+//import 'package:flutter_localizations/flutter_localizations.dart';
+//import '../settings_screen.dart';
 
 class SelectLanguageDropDownList extends StatefulWidget {
   const SelectLanguageDropDownList({Key? key}) : super(key: key);
@@ -36,9 +37,9 @@ class _SelectLanguageDropDownListState
           onChanged: (value) async {
             if (value == null) return;
             if (value == 'ru') {
-              await AppLocalizations.of(
-                const Locale("ru")
-                    as BuildContext, //TODO ас контекст не коректная форма надо изменить
+              await CustomLocalizations.load(
+                const Locale("ru"),
+                //TODO ас контекст не коректная форма надо изменить
               );
               setState(() {});
             } else if (value == 'en') {

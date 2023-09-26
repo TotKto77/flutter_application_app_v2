@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../constants/app_assets.dart';
-import './characters_data.dart';
+import '/ui/vmodel.dart';
 
 class RikGrid extends StatefulWidget {
   const RikGrid({super.key});
@@ -14,7 +14,7 @@ class _RikGridState extends State<RikGrid> {
   Widget build(BuildContext context) {
     return GridView.count(
       crossAxisCount: 2,
-      children: characters.map((character) {
+      children: PersonsListVmodel.map((character) {
         return Container(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           width: 164,

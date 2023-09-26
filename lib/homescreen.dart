@@ -4,7 +4,7 @@ import './constants/app_styles.dart';
 import './homscreenWidgets/listView.dart';
 import './homscreenWidgets/rik_gred.dart';
 import './homscreenWidgets/serchbar.dart';
-import './homscreenWidgets/characters_data.dart';
+import '/ui/vmodel.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -15,7 +15,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   FocusNode focusNode = FocusNode();
-  int? characterNumber = characters.length;
+  int? characterNumber = PersonsListVmodel.length;
 
   bool isGridView = false;
 

@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart'; // Импорт нужной библиотеки для Locale
+//import 'package:intl/intl.dart'; // Импорт нужной библиотеки для Locale
 import './splash_Screen.dart';
 import './constants/app_styles.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import './repo/repo_settings.dart';
+import "./localizations/custom_localization.dart";
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent, // Прозрачная панель состояния
@@ -44,7 +46,8 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       localizationsDelegates: const [
-        AppLocalizations.delegate, // Add this line
+        CustomLocalizationsDelegate(),
+        AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,

@@ -11,5 +11,12 @@
     "alertMesage":"Invalid login or password entered",
     "russian": "Russian",
     "english": "English",
-    "settings": "Settings"
+    "settings": "Settings",
+    "man":"Human",
+    "alient":"Alient",
+    "female":"Female",
+    "male":"Male",
+    "alive":"Alive",
+    "death":"Death"
+
 }
