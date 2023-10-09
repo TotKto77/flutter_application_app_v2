@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../constants/app_assets.dart';
 import './characters_data.dart';
-import '/ui/vmodel.dart';
 
 class RikList extends StatefulWidget {
   const RikList({super.key});

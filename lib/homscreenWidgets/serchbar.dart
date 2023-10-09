@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
 import '/constants/app_styles.dart';
 
-class SerchBar extends StatefulWidget {
+class SearchField extends StatelessWidget {
   final FocusNode focusNode;
 
-  SerchBar({Key? key, required this.focusNode}) : super(key: key);
+  const SearchField({Key? key, this.onChanged, required this.focusNode})
+      : super(key: key);
+  final ValueChanged<String>? onChanged;
 
-  @override
-  State<SerchBar> createState() => _SerchBarState();
-}
-
-class _SerchBarState extends State<SerchBar> {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      focusNode: widget.focusNode,
+      onChanged: onChanged,
+      focusNode: focusNode,
       decoration: const InputDecoration(
           contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 15),
           hintText: "Найти персонажа",

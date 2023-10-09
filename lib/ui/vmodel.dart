@@ -1,41 +1,41 @@
-import 'package:flutter/material.dart';
-import '../homscreenWidgets/characters_data.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import '../constants/app_assets.dart';
-import '../constants/app_styles.dart';
-import 'package:intl/intl.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter_application_app_v2/repo/repo_persons.dart';
+import '../homscreenWidgets/person.dart';
 
-class PersonsListVmodel with ChangeNotifier {
+class PersonsListVModel with ChangeNotifier {
+  PersonsListVModel({required this.repo}) {
+    _init();
+  }
+
+  String? errorMessage;
+  List<Person> filteredList = <Person>[];
   bool isListView = true;
+  var isLoading = true;
+  final RepoPersons repo;
 
-  static int? length;
+  var _personsList = <Person>[];
+
+  void _init() {
+    repo.readPersons().then((result) {
+      errorMessage = result.errorMassage;
+      _personsList = result.personsList ?? <Person>[];
+      filteredList = _personsList;
+      isLoading = false;
+      notifyListeners();
+    });
+  }
+
+  void filter(String query) {
+    filteredList = _personsList.where((element) {
+      if (element.name == null) return false;
+      final name = element.name!.toLowerCase();
+      return name.contains(query);
+    }).toList();
+    notifyListeners();
+  }
+
   void switchView() {
     isListView = !isListView;
     notifyListeners();
   }
-
-  final personList = [
-    ..._list,
-    ..._list,
-    ..._list,
-    ..._list,
-  ];
-
-  static map(Container Function(dynamic character) param0) {}
 }
-
-final _list = [
-  Character(
-    name: 'Рик Санчез',
-    species: AppLocalizations.
-    status: AppLocalizations.current.alive,
-    gender: AppLocalizations.current.male,
-    avatar: AppAssets.images.noAvatar,
-    nameTextStyle: AppStyles.mainS16w500,
-    speciesTextStyle: AppStyles.detailS12w400,
-    sstatusTextStyle: const TextStyle(
-      fontSize: 10.0,
-      fontWeight: FontWeight.w500,
-    ),
-  ),
-];

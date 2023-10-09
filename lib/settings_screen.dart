@@ -43,7 +43,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
           ),
           Container(
-              alignment: Alignment.center, child: SelectLanguageDropDownList()),
+            color: Colors.blue,
+            alignment: Alignment.center,
+          ),
         ],
       ),
     );

@@ -1,10 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-class RepoSetings {
-  RepoSetings._();
-  static final _instance = RepoSetings._();
-  factory RepoSetings() => _instance;
-
+class RepoSettings {
   SharedPreferences? prefs;
 
   Future<void> init() async {
@@ -12,10 +8,12 @@ class RepoSetings {
   }
 
   Future<bool?> saveLocale(String locale) async {
-    return prefs?.setString("locale", locale);
+    if (prefs == null) return false;
+    return prefs?.setString('locale', locale);
   }
 
   Future<String?> readLocale() async {
-    return prefs?.getString("locle");
+    if (prefs == null) return null;
+    return prefs?.getString("locale");
   }
 }
