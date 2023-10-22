@@ -38,7 +38,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 Text(
                   AppLocalizations.of(context)!.settings,
                   style: AppStyles.settingsS20w500,
-                ), // Замени Title на Text
+                ),
               ],
             ),
           ),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_app_v2/bloc/location/bloc_location.dart';
 import 'package:flutter_application_app_v2/bloc/persons/bloc_persons.dart';
 import 'package:flutter_application_app_v2/repo/api.dart';
+import 'package:flutter_application_app_v2/repo/repo_locations.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import './repo_settings.dart';
 import './repo_persons.dart';
@@ -39,6 +41,11 @@ class InitWidget extends StatelessWidget {
             create: (context) => BlocPersons(
               repo: RepositoryProvider.of<RepoPersons>(context),
             )..add(EventPersonsFilterByName('')),
+          ),
+          BlocProvider(
+            create: (context) => BlocLocations(
+              repo: RepositoryProvider.of<RepoLocations>(context),
+            )..add(EventLocationsFilterByName('')),
           ),
         ],
         child: child,

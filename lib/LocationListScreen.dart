@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_app_v2/bloc/persons/bloc_persons.dart';
-import 'package:flutter_application_app_v2/bloc/persons/states.dart';
+import 'package:flutter_application_app_v2/bloc/location/bloc_location.dart';
+import 'package:flutter_application_app_v2/bloc/location/states.dart';
 import 'package:flutter_application_app_v2/constants/app_colors.dart';
+import 'package:flutter_application_app_v2/locationScreenWidgets/listViewLocations.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 //import 'bottom_NavigationBar.dart';
 import "./homscreenWidgets/serchbar.dart";
-import './homscreenWidgets/rik_gred.dart';
-import './homscreenWidgets/listView.dart';
+import 'package:flutter_application_app_v2/LocationListScreen.dart';
 
-class PersonsListScreen extends StatelessWidget {
-  const PersonsListScreen({super.key});
+class LocationsListScreen extends StatelessWidget {
+  const LocationsListScreen({super.key});
 
   static final isListView = ValueNotifier(true);
 
@@ -19,42 +19,27 @@ class PersonsListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        // bottomNavigationBar: const MyBottomNavigation(),
         body: Column(
           children: [
             SearchField(
               focusNode: focusNode, //TODO wtf???
               onChanged: (value) {
-                BlocProvider.of<BlocPersons>(context).add(
-                  EventPersonsFilterByName(value),
+                BlocProvider.of<BlocLocations>(context).add(
+                  EventLocationsFilterByName(value),
                 );
               },
             ),
-            BlocBuilder<BlocPersons, StateBlocPersons>(
+            BlocBuilder<BlocLocations, StateBlocLocations>(
               builder: (context, state) {
-                if (state is StatePersonsData) {}
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12),
-                  child: Row(
-                    children: [
-                      const Expanded(
-                        child: Text("personsList.length"),
-                      ),
-                      IconButton(
-                        onPressed: () {
-                          isListView.value = !isListView.value;
-                        },
-                        icon: const Icon(Icons.grid_view),
-                        iconSize: 28.0,
-                        color: AppColors.neutral2,
-                      ),
-                    ],
-                  ),
+                if (state is StateLocationsData) {}
+                return const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 12),
+                  child: Text("Locales"),
                 );
               },
             ),
             Expanded(
-              child: BlocBuilder<BlocPersons, StateBlocPersons>(
+              child: BlocBuilder<BlocLocations, StateBlocLocations>(
                 builder: (context, state) {
                   return state.when(
                     initial: () => const SizedBox.shrink(),
@@ -70,7 +55,7 @@ class PersonsListScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Flexible(
-                              child: Text("S.of(context.personsListIsEmpty)"),
+                              child: Text("S.of(context.LocationsListIsEmpty)"),
                             ),
                           ],
                         );
@@ -78,9 +63,7 @@ class PersonsListScreen extends StatelessWidget {
                         return ValueListenableBuilder<bool>(
                           valueListenable: isListView,
                           builder: (context, isListViewModel, _) {
-                            return isListViewModel
-                                ? RikList(personsList: data)
-                                : RikGrid(personsList: data);
+                            return LocationListViewWidget(locationsList: data);
                           },
                         );
                       }

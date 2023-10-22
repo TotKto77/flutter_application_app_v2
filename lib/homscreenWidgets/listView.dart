@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import '../constants/app_assets.dart';
-import './characters_data.dart';
+import 'package:flutter_application_app_v2/homscreenWidgets/person.dart';
+import 'package:flutter_application_app_v2/constants/app_assets.dart';
+import 'package:flutter_application_app_v2/constants/app_styles.dart';
 
 class RikList extends StatefulWidget {
-  const RikList({super.key});
+  final List<Person> personsList;
+
+  const RikList({Key? key, required this.personsList}) : super(key: key);
 
   @override
   State<RikList> createState() => _RikListState();
@@ -13,17 +16,18 @@ class _RikListState extends State<RikList> {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-      padding: const EdgeInsets.symmetric(horizontal: (16)),
-      itemCount: characters.length,
-      separatorBuilder: (context, index) => const SizedBox(
-        height: 24,
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      itemCount: widget.personsList.length,
+      separatorBuilder: (context, index) => const SizedBox(height: 24),
       itemBuilder: (context, index) {
-        Character character = characters[index];
+        Person person = widget.personsList[index];
+        ImageProvider<Object>? imageProvider = person.image != null
+            ? NetworkImage(person.image!)
+            : AssetImage(AppAssets.images.noAvatar) as ImageProvider<Object>?;
         return ListTile(
           leading: CircleAvatar(
             radius: 37,
-            backgroundImage: AssetImage(AppAssets.images.noAvatar),
+            backgroundImage: imageProvider,
           ),
           title: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 18.0),
@@ -31,20 +35,17 @@ class _RikListState extends State<RikList> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  character.status ? 'Живой' : 'Мертвый',
+                  person.status ?? "Неизвестен",
                   style: TextStyle(
-                      fontSize: 10.0,
-                      fontWeight: FontWeight.w500,
-                      color: character.status ? Colors.green : Colors.red),
+                    fontSize: 10.0,
+                    fontWeight: FontWeight.w500,
+                    color: person.status == "Alive" ? Colors.green : Colors.red,
+                  ),
                 ),
+                Text(person.name ?? "Неизвестно", style: AppStyles.mainS16w500),
                 Text(
-                  character.name,
-                  style: character.nameTextStyle,
-                ),
-                Text(
-                  character.species,
-                  style: character.speciesTextStyle,
-                ),
+                    '${person.species ?? "Неизвестен"},${person.gender ?? "Неизвестен"}',
+                    style: AppStyles.detailS12w400),
               ],
             ),
           ),

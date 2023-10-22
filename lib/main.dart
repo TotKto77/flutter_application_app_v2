@@ -5,7 +5,6 @@ import './constants/app_styles.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import './repo/init_widget.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

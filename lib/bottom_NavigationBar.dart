@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_app_v2/LocationListScreen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import './homescreen.dart';
+import 'PresonsListScreen.dart';
 import './settings_screen.dart';
 import 'constants/app_assets.dart';
 
@@ -14,7 +15,8 @@ class MyBottomNavigation extends StatefulWidget {
 class _MyBottomNavigatioState extends State<MyBottomNavigation> {
   int _selectedPage = 0;
   static const List<Widget> _wigdgetOptions = <Widget>[
-    HomeScreen(),
+    PersonsListScreen(),
+    LocationsListScreen(),
     SettingsScreen(),
   ];
 
@@ -49,6 +51,19 @@ class _MyBottomNavigatioState extends State<MyBottomNavigation> {
             ),
             label: "Пеосонажи",
           ),
+          BottomNavigationBarItem(
+              icon: SizedBox(
+                width: 24,
+                child: SvgPicture.asset(AppAssets.svg.episodIcon),
+              ),
+              activeIcon: SizedBox(
+                width: 24,
+                child: SvgPicture.asset(
+                  AppAssets.svg.episodIcon,
+                  color: Colors.blue,
+                ),
+              ),
+              label: "Локаций"),
           BottomNavigationBarItem(
               icon: SizedBox(
                 width: 24,

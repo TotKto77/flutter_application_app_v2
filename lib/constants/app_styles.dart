@@ -7,6 +7,10 @@ class AppStyles {
     fontWeight: FontWeight.w500,
     color: AppColors.more1,
   );
+  static const liveOrDeathS10w500 = TextStyle(
+    fontSize: 10.0,
+    fontWeight: FontWeight.w500,
+  );
   static const deadS10w500 = TextStyle(
     fontSize: 10.0,
     fontWeight: FontWeight.w500,

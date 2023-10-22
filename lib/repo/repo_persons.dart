@@ -1,4 +1,3 @@
-import 'dart:convert';
 //import 'dart:html';
 import 'package:flutter_application_app_v2/repo/api.dart';
 
@@ -23,7 +22,7 @@ class RepoPersons {
       final List personsListJson = result.data['results'] ?? [];
       final personsList = personsListJson
           .map(
-            (item) => Person.fromJsom(item),
+            (item) => Person.fromJson(item),
           )
           .toList();
       return ResultRepoPersons(personsList: personsList);

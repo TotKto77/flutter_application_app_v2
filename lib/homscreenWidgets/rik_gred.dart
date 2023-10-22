@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import '../constants/app_assets.dart';
-import './characters_data.dart';
+import 'package:flutter_application_app_v2/homscreenWidgets/person.dart';
+import 'package:flutter_application_app_v2/constants/app_assets.dart';
+import 'package:flutter_application_app_v2/constants/app_styles.dart';
 
 class RikGrid extends StatefulWidget {
-  const RikGrid({super.key});
+  final List<Person> personsList;
+
+  const RikGrid({Key? key, required this.personsList}) : super(key: key);
 
   @override
   State<RikGrid> createState() => _RikGridState();
@@ -14,7 +17,10 @@ class _RikGridState extends State<RikGrid> {
   Widget build(BuildContext context) {
     return GridView.count(
       crossAxisCount: 2,
-      children: characters.map((character) {
+      children: widget.personsList.map((person) {
+        ImageProvider<Object>? imageProvider = person.image != null
+            ? NetworkImage(person.image!)
+            : AssetImage(AppAssets.images.noAvatar) as ImageProvider<Object>?;
         return Container(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           width: 164,
@@ -25,26 +31,23 @@ class _RikGridState extends State<RikGrid> {
             children: [
               CircleAvatar(
                 radius: 60,
-                backgroundImage: AssetImage(AppAssets.images.noAvatar),
+                backgroundImage: imageProvider,
               ),
               const SizedBox(
                 height: 18,
               ),
               Text(
-                character.status ? 'Живой' : 'Мертвый',
+                '${person.status ?? "Неизвестен"}',
                 style: TextStyle(
-                    fontSize: 10.0,
-                    fontWeight: FontWeight.w500,
-                    color: character.status ? Colors.green : Colors.red),
+                  fontSize: 10.0,
+                  fontWeight: FontWeight.w500,
+                  color: person.status == "Alive" ? Colors.green : Colors.red,
+                ),
               ),
+              Text(person.name ?? "Неизвестно", style: AppStyles.mainS16w500),
               Text(
-                character.name,
-                style: character.nameTextStyle,
-              ),
-              Text(
-                character.species,
-                style: character.speciesTextStyle,
-              ),
+                  '${person.species ?? "Неизвестен"},${person.gender ?? "Неизвестен"}',
+                  style: AppStyles.detailS12w400),
             ],
           ),
         );
