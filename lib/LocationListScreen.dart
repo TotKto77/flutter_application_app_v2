@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_app_v2/bloc/location/bloc_location.dart';
 import 'package:flutter_application_app_v2/bloc/location/states.dart';
-import 'package:flutter_application_app_v2/constants/app_colors.dart';
 import 'package:flutter_application_app_v2/locationScreenWidgets/listViewLocations.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 //import 'bottom_NavigationBar.dart';
 import "./homscreenWidgets/serchbar.dart";
-import 'package:flutter_application_app_v2/LocationListScreen.dart';
 
 class LocationsListScreen extends StatelessWidget {
   const LocationsListScreen({super.key});
 
-  static final isListView = ValueNotifier(true);
+  //static final isListView = ValueNotifier(true);
 
   get focusNode => FocusNode();
 
@@ -34,7 +32,7 @@ class LocationsListScreen extends StatelessWidget {
                 if (state is StateLocationsData) {}
                 return const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 12),
-                  child: Text("Locales"),
+                  child: Text("locationsList"),
                 );
               },
             ),
@@ -60,12 +58,7 @@ class LocationsListScreen extends StatelessWidget {
                           ],
                         );
                       } else {
-                        return ValueListenableBuilder<bool>(
-                          valueListenable: isListView,
-                          builder: (context, isListViewModel, _) {
-                            return LocationListViewWidget(locationsList: data);
-                          },
-                        );
+                        return LocationListViewWidget(locationsList: data);
                       }
                     },
                     error: (state) {

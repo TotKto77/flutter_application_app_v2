@@ -19,7 +19,6 @@ class PersonsListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        // bottomNavigationBar: const MyBottomNavigation(),
         body: Column(
           children: [
             SearchField(
