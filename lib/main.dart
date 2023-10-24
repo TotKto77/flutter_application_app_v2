@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_app_v2/repo/init_widget.dart';
-import './splash_Screen.dart';
+import 'splash_screen.dart';
 import './constants/app_styles.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';

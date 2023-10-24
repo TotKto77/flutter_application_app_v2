@@ -38,7 +38,6 @@ class _LoginScreenState extends State<LoginScreen> {
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                //crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Container(
                     margin: const EdgeInsets.fromLTRB(57, 20, 49, 65),
@@ -48,7 +47,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     padding: const EdgeInsets.all(28.0),
                     child: Column(
                       children: [
-                        //RedContainerWithIconAndText(),
                         LoginTextFields(
                           loginController: loginController,
                           passController: passController,

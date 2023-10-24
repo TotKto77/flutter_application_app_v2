@@ -1,17 +1,13 @@
-//import 'dart:html';
 import 'package:flutter_application_app_v2/repo/api.dart';
 
 import '../homscreenWidgets/person.dart';
-//import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:http/http.dart' as http;
 
 class RepoPersons {
   RepoPersons({required this.api});
   final Api api;
   Future<ResultRepoPersons> filterByName(String name) async {
     try {
-      final url =
-          Uri.parse("https://rickandmortyapi.com/api/character/?name=$name");
+      final url = Uri.parse("https://rickandmortyapi.com/api/character/?name=$name");
       final result = await api.dio.get(
         '/character/',
         queryParameters: {

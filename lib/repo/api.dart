@@ -7,8 +7,8 @@ class Api {
     );
   final options = BaseOptions(
     baseUrl: 'https://rickandmortyapi.com/api',
-    connectTimeout: Duration(milliseconds: 30000),
-    receiveTimeout: Duration(milliseconds: 30000),
+    connectTimeout: const Duration(milliseconds: 30000),
+    receiveTimeout: const Duration(milliseconds: 30000),
   );
 }
 
