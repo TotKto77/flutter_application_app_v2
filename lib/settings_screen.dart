@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-//import './constants/app_colors.dart';
+
 import 'constants/app_styles.dart';
-import './settings_screen_widgets/droptdDownLanguageList.dart'; // Предполагаю, что это правильное название файла
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);

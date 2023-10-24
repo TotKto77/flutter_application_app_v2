@@ -37,7 +37,7 @@ class _RikGridState extends State<RikGrid> {
                 height: 18,
               ),
               Text(
-                '${person.status ?? "Неизвестен"}',
+                person.status ?? "Неизвестен",
                 style: TextStyle(
                   fontSize: 10.0,
                   fontWeight: FontWeight.w500,
@@ -45,8 +45,7 @@ class _RikGridState extends State<RikGrid> {
                 ),
               ),
               Text(person.name ?? "Неизвестно", style: AppStyles.mainS16w500),
-              Text(
-                  '${person.species ?? "Неизвестен"},${person.gender ?? "Неизвестен"}',
+              Text('${person.species ?? "Неизвестен"},${person.gender ?? "Неизвестен"}',
                   style: AppStyles.detailS12w400),
             ],
           ),

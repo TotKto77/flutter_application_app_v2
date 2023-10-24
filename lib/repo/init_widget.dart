@@ -27,10 +27,12 @@ class InitWidget extends StatelessWidget {
           create: (context) => RepoSettings(),
         ),
         RepositoryProvider(
-          create: (context) => RepoSettings(),
+          create: (context) => RepoPersons(
+            api: RepositoryProvider.of<Api>(context),
+          ),
         ),
         RepositoryProvider(
-          create: (context) => RepoPersons(
+          create: (context) => RepoLocations(
             api: RepositoryProvider.of<Api>(context),
           ),
         )

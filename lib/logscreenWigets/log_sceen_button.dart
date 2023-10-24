@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../bottom_NavigationBar.dart';
-import './SingIn_button.dart';
+import '../bottom_nav_bar.dart';
+import 'singin_button.dart';
 import '../constants/app_styles.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -29,8 +29,7 @@ class LoginButton extends StatelessWidget {
               if (formfield.currentState!.validate()) {
                 FocusScope.of(context).unfocus();
                 formfield.currentState?.save();
-                if (loginController.text == "qwerty" &&
-                    passController.text == "12345678901") {
+                if (loginController.text == "qwerty" && passController.text == "12345678901") {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -38,10 +37,6 @@ class LoginButton extends StatelessWidget {
                     ),
                   );
                 } else {
-//
-//
-//
-                  //
                   showDialog<String>(
                     context: context,
                     builder: (BuildContext context) => AlertDialog(
@@ -66,14 +61,10 @@ class LoginButton extends StatelessWidget {
                               AppLocalizations.of(context)!.alertMesage,
                               style: AppStyles.alert2S20w500,
                             ),
-                            // const SizedBox(
-                            //   height: 24,
-                            // ),
                             Container(
                               margin: const EdgeInsets.only(top: 24),
                               alignment: Alignment.bottomCenter,
-                              constraints: const BoxConstraints(
-                                  maxWidth: double.infinity),
+                              constraints: const BoxConstraints(maxWidth: double.infinity),
                               height: 40,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
@@ -85,8 +76,7 @@ class LoginButton extends StatelessWidget {
                                   padding: const EdgeInsets.all(0.0),
                                   backgroundColor: Colors.transparent,
                                 ),
-                                onPressed: () =>
-                                    Navigator.pop(context, 'Cancel'),
+                                onPressed: () => Navigator.pop(context, 'Cancel'),
                                 child: const Text(
                                   'OK',
                                   style: TextStyle(color: Colors.blue),
