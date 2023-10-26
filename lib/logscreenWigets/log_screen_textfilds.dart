@@ -43,13 +43,13 @@ class LoginTextFields extends StatelessWidget {
             return null;
           },
           decoration: InputDecoration(
-            contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
             fillColor: AppColors.neutral1,
             filled: true,
             hintText: AppLocalizations.of(context)!.login,
             counterText: "",
             prefixIcon: Padding(
-              padding: EdgeInsets.fromLTRB(16, 0, 29, 0),
+              padding: const EdgeInsets.fromLTRB(16, 0, 29, 0),
               child: SvgPicture.asset(
                 AppAssets.svg.accont,
               ),
@@ -85,13 +85,13 @@ class LoginTextFields extends StatelessWidget {
             return null;
           },
           decoration: InputDecoration(
-            contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
             fillColor: AppColors.neutral1,
             filled: true,
             hintText: AppLocalizations.of(context)!.password,
             counterText: "",
             prefixIcon: Padding(
-              padding: EdgeInsets.fromLTRB(16, 0, 29, 0),
+              padding: const EdgeInsets.fromLTRB(16, 0, 29, 0),
               child: SvgPicture.asset(
                 AppAssets.svg.password,
               ),
