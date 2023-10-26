@@ -18,15 +18,17 @@ class SingIn extends StatelessWidget {
           style: AppStyles.singinTextHintldS14w400,
         ),
         TextButton(
-            onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => const MyBottomNavigation()),
-              );
-            },
-            child: Text(
-              AppLocalizations.of(context)!.create,
-              style: AppStyles.createAcauntS14w400,
-            ))
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                  builder: (context) => const MyBottomNavigation()),
+            );
+          },
+          child: Text(
+            AppLocalizations.of(context)!.create,
+            style: AppStyles.createAcauntS14w400,
+          ),
+        ),
       ],
     );
   }

@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutter_application_app_v2/bloc/location/bloc_location.dart';
 import 'package:flutter_application_app_v2/bloc/location/states.dart';
-import 'package:flutter_application_app_v2/locationScreenWidgets/listViewLocations.dart';
+import 'package:flutter_application_app_v2/locationScreenWidgets/list_view_locations.dart';
 
 import "./homscreenWidgets/serchbar.dart";
 
@@ -58,7 +58,8 @@ class LocationsListScreen extends StatelessWidget {
                         ],
                       );
                     } else {
-                      return Expanded(child: LocationListViewWidget(locationsList: data));
+                      return Expanded(
+                          child: LocationListViewWidget(locationsList: data));
                     }
                   },
                   error: (state) {

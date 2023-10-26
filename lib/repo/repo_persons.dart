@@ -7,7 +7,8 @@ class RepoPersons {
   final Api api;
   Future<ResultRepoPersons> filterByName(String name) async {
     try {
-      final url = Uri.parse("https://rickandmortyapi.com/api/character/?name=$name");
+      final url =
+          Uri.parse("https://rickandmortyapi.com/api/character/?name=$name");
       final result = await api.dio.get(
         '/character/',
         queryParameters: {
