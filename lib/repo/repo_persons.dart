@@ -1,9 +1,6 @@
-//import 'dart:html';
 import 'package:flutter_application_app_v2/repo/api.dart';
 
 import '../homscreenWidgets/person.dart';
-//import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:http/http.dart' as http;
 
 class RepoPersons {
   RepoPersons({required this.api});

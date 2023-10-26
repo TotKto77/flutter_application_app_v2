@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_app_v2/LocationListScreen.dart';
+import 'package:flutter_application_app_v2/locations_list_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'PresonsListScreen.dart';
+import 'persons_list_screen.dart';
 import './settings_screen.dart';
 import 'constants/app_assets.dart';
 

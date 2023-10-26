@@ -22,7 +22,7 @@ class PersonsListScreen extends StatelessWidget {
         body: Column(
           children: [
             SearchField(
-              focusNode: focusNode, //TODO wtf???
+              focusNode: focusNode,
               onChanged: (value) {
                 BlocProvider.of<BlocPersons>(context).add(
                   EventPersonsFilterByName(value),
@@ -77,9 +77,7 @@ class PersonsListScreen extends StatelessWidget {
                         return ValueListenableBuilder<bool>(
                           valueListenable: isListView,
                           builder: (context, isListViewModel, _) {
-                            return isListViewModel
-                                ? RikList(personsList: data)
-                                : RikGrid(personsList: data);
+                            return isListViewModel ? RikList(personsList: data) : RikGrid(personsList: data);
                           },
                         );
                       }

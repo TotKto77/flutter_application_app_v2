@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_app_v2/homscreenWidgets/location.dart';
 import 'package:flutter_application_app_v2/constants/app_styles.dart';
+import 'package:flutter_application_app_v2/locationScreenWidgets/detailed_location_screen.dart';
 
 class LocationListViewWidget extends StatefulWidget {
   final List<Location> locationsList;
@@ -21,19 +22,26 @@ class _LocationListViewWidgetState extends State<LocationListViewWidget> {
       separatorBuilder: (context, index) => const SizedBox(height: 24),
       itemBuilder: (context, index) {
         Location location = widget.locationsList[index];
-        return ListTile(
-          title: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 18.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('${location.dimension ?? "Неизвестен"}',
-                    style: AppStyles.detailS12w400),
-                Text('${location.type ?? "Неизвестен"}',
-                    style: AppStyles.detailS12w400),
-                Text('${location.created ?? "Неизвестен"}',
-                    style: AppStyles.detailS12w400),
-              ],
+        return GestureDetector(
+          onTap: () => Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => DetailedLocationScreen(location: location),
+            ),
+          ),
+          child: ListTile(
+            title: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 18.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(location.dimension ?? "Неизвестен",
+                      style: AppStyles.detailS12w400),
+                  Text(location.type ?? "Неизвестен",
+                      style: AppStyles.detailS12w400),
+                  Text(location.created ?? "Неизвестен",
+                      style: AppStyles.detailS12w400),
+                ],
+              ),
             ),
           ),
         );
